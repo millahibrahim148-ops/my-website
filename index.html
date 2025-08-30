@@ -17,7 +17,7 @@
     /* Sidebar */
     aside {
       width: 220px;
-      background: #333;   /* dark gray */
+      background: #222;   /* darker gray */
       color: #fff;
       padding: 15px;
       height: 100vh;
@@ -29,14 +29,14 @@
       width: 150px;
       height: auto;
       border-radius: 6px;
-      margin: 25px auto 18px auto; /* lowered & added space under */
+      margin: 25px auto 18px auto; /* lowered & spaced */
       display: block;
     }
 
     aside h1 {
       font-size: 1.2em;
       text-align: center;
-      margin: 15px 0 25px 0; /* space between banner & title */
+      margin: 15px 0 25px 0; /* spacing */
       font-weight: normal;
     }
 
@@ -47,7 +47,7 @@
     /* Menu categories */
     .menu-category {
       margin: 8px 0;
-      border-bottom: 1px solid #555;
+      border-bottom: 1px solid #444;
     }
 
     .menu-category button {
@@ -65,7 +65,7 @@
     }
 
     .menu-category button:hover {
-      background: #444;
+      background: #333;
     }
 
     .arrow {
@@ -84,7 +84,7 @@
     .submenu a {
       display: block;
       text-decoration: none;
-      color: #ccc;
+      color: #bbb;
       padding: 4px 0;
       font-size: 0.9em;
       font-weight: normal;
@@ -105,18 +105,53 @@
     }
 
     .menu-category a:hover {
-      background: #444;
+      background: #333;
     }
 
     /* Main content */
     main {
       margin-left: 240px;
-      padding: 25px;
+      padding: 0; /* remove extra padding so header spans full width */
       flex: 1;
     }
 
-    main h2 {
+    /* Hero/Header Section */
+    .hero {
+      position: relative;
+      height: 300px;
+      background: url("https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg") 
+                  no-repeat center center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.55); /* dark overlay */
+    }
+
+    .hero-content {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
       font-weight: normal;
+    }
+
+    .hero-content p {
+      font-size: 1.1em;
+    }
+
+    /* Page content */
+    .page-content {
+      padding: 25px;
     }
   </style>
 </head>
@@ -170,8 +205,18 @@
   </aside>
 
   <main>
-    <h2>Welcome to thaalib al-ʿIlm</h2>
-    <p>Select a category from the sidebar to explore content.</p>
+    <!-- Hero/Header -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to thaalib al-ʿIlm</h2>
+        <p>A place to seek knowledge with clarity and purpose.</p>
+      </div>
+    </section>
+
+    <!-- Page content -->
+    <div class="page-content">
+      <p>Select a category from the sidebar to explore content.</p>
+    </div>
   </main>
 
   <script>
