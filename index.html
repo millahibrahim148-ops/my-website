@@ -16,8 +16,8 @@
 
     /* Sidebar */
     aside {
-      width: 220px;              /* not too stretched */
-      background: #333;          /* dark gray */
+      width: 220px;
+      background: #333;   /* dark gray */
       color: #fff;
       padding: 15px;
       height: 100vh;
@@ -26,9 +26,10 @@
     }
 
     aside img {
-      max-width: 100%;
+      width: 150px;
+      height: auto;
       border-radius: 6px;
-      margin-bottom: 10px;
+      margin: 0 auto 10px auto;
       display: block;
     }
 
@@ -69,11 +70,9 @@
 
     .arrow {
       margin-right: 6px;
-      transition: transform 0.3s;
-    }
-
-    .arrow.open {
-      transform: rotate(-90deg);
+      font-size: 0.9em;
+      display: inline-block;
+      width: 12px;
     }
 
     .submenu {
@@ -111,7 +110,7 @@
 
     /* Main content */
     main {
-      margin-left: 240px; /* leave room for sidebar */
+      margin-left: 240px;
       padding: 25px;
       flex: 1;
     }
@@ -137,7 +136,7 @@
       <!-- Ask Question / Give Suggestion -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">▼</span> Ask Question / Give Suggestion
+          <span class="arrow">></span> Ask Question / Give Suggestion
         </button>
         <div class="submenu">
           <a href="#ask-question">How to Submit a Question</a>
@@ -148,7 +147,7 @@
       <!-- For Muslim / Muslimah -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">▼</span> For Muslim / Muslimah
+          <span class="arrow">></span> For Muslim / Muslimah
         </button>
         <div class="submenu">
           <a href="#muslim">For Muslim</a>
@@ -159,7 +158,7 @@
       <!-- Thaalib al-ʿIlm Guides -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">▼</span> Thaalib al-ʿIlm Guides
+          <span class="arrow">></span> Thaalib al-ʿIlm Guides
         </button>
         <div class="submenu">
           <a href="#guide1">How to Start Seeking Knowledge</a>
@@ -180,8 +179,9 @@
       const arrow = button.querySelector(".arrow");
       const submenu = button.nextElementSibling;
 
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-      arrow.classList.toggle("open");
+      const isOpen = submenu.style.display === "block";
+      submenu.style.display = isOpen ? "none" : "block";
+      arrow.textContent = isOpen ? ">" : "v";
     }
   </script>
 
