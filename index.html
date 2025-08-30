@@ -23,6 +23,11 @@
       top: 0;
       padding: 20px;
       overflow-y: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar.hidden {
+      transform: translateX(100%);
     }
 
     .sidebar img {
@@ -72,6 +77,11 @@
       margin-right: 250px; /* space for sidebar */
       width: 100%;
       min-height: 100vh;
+      transition: margin-right 0.3s ease;
+    }
+
+    .main.full {
+      margin-right: 0;
     }
 
     /* Header with background */
@@ -102,11 +112,53 @@
     .header-content img {
       max-width: 300px;
     }
+
+    /* Menu Icon */
+    .menu-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      font-size: 24px;
+      color: white;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 6px;
+    }
+
+    /* Topbar when sidebar is hidden */
+    .topbar {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      top: 15px;
+      left: 60px;
+      z-index: 999;
+    }
+
+    .topbar img {
+      height: 30px;
+      border-radius: 4px;
+    }
+
+    .topbar h2 {
+      color: white;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .show-topbar {
+      display: flex;
+    }
   </style>
 </head>
 <body>
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <img src="https://github.com/millahibrahim148-ops/my-website/blob/main/unnamed.png?raw=true" alt="Banner">
     <h2>thaalib al-ʿIlm</h2>
     <ul class="menu">
@@ -128,7 +180,12 @@
   </div>
 
   <!-- Main -->
-  <div class="main">
+  <div class="main" id="main">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <div class="topbar" id="topbar">
+      <img src="https://github.com/millahibrahim148-ops/my-website/blob/main/unnamed.png?raw=true" alt="Banner Small">
+      <h2>thaalib al-ʿIlm</h2>
+    </div>
     <div class="header">
       <div class="header-content">
         <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/0821.gif" alt="Title GIF">
@@ -137,11 +194,23 @@
   </div>
 
   <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const main = document.getElementById("main");
+    const topbar = document.getElementById("topbar");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+      main.classList.toggle("full");
+      topbar.classList.toggle("show-topbar");
+    });
+
     document.querySelectorAll(".menu li").forEach(item => {
-      item.addEventListener("click", function () {
+      item.addEventListener("click", function (e) {
         let submenu = this.querySelector(".submenu");
         let arrow = this.querySelector("span");
         if (submenu) {
+          e.stopPropagation(); 
           submenu.style.display = submenu.style.display === "block" ? "none" : "block";
           arrow.textContent = submenu.style.display === "block" ? "▼" : "▶";
         }
