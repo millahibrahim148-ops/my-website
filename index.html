@@ -17,26 +17,28 @@
     /* Sidebar */
     aside {
       width: 220px;
-      background: #1a1a1a;   /* darker gray */
+      background: #222;   /* dark gray */
       color: #fff;
       padding: 15px;
       height: 100vh;
       overflow-y: auto;
       position: fixed;
+      right: 0;  /* move sidebar to the right */
+      top: 0;
     }
 
     aside img {
       width: 150px;
       height: auto;
       border-radius: 6px;
-      margin: 25px auto 18px auto; /* lowered & spaced */
+      margin: 25px auto 18px auto;
       display: block;
     }
 
     aside h1 {
       font-size: 1.2em;
       text-align: center;
-      margin: 15px 0 25px 0; /* spacing */
+      margin: 15px 0 25px 0;
       font-weight: normal;
     }
 
@@ -110,8 +112,8 @@
 
     /* Main content */
     main {
-      margin-left: 240px;
-      padding: 0; /* remove extra padding so header spans full width */
+      margin-right: 240px; /* push main content away from right sidebar */
+      padding: 0;
       flex: 1;
     }
 
@@ -119,10 +121,15 @@
     .hero {
       position: relative;
       height: 320px;
-      background: 
-        linear-gradient(rgba(40,40,40,0.6), rgba(40,40,40,0.6)), /* readability overlay */
-        url("https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg") 
-        no-repeat center center/cover;
+      background: url("https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg") 
+                  no-repeat center center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.55); /* dark overlay for readability */
     }
 
     .hero-content {
@@ -152,9 +159,24 @@
 </head>
 <body>
 
+  <main>
+    <!-- Hero/Header -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to thaalib al-ʿIlm</h2>
+        <p>A place to seek knowledge with clarity and purpose.</p>
+      </div>
+    </section>
+
+    <!-- Page content -->
+    <div class="page-content">
+      <p>Select a category from the sidebar to explore content.</p>
+    </div>
+  </main>
+
   <aside>
     <!-- Banner Image -->
-    <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/image.png" alt="Banner">
+    <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/unnamed.png" alt="Banner">
     <h1>thaalib al-ʿIlm</h1>
 
     <nav>
@@ -198,21 +220,6 @@
       </div>
     </nav>
   </aside>
-
-  <main>
-    <!-- Hero/Header -->
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Welcome to thaalib al-ʿIlm</h2>
-        <p>A place to seek knowledge with clarity and purpose.</p>
-      </div>
-    </section>
-
-    <!-- Page content -->
-    <div class="page-content">
-      <p>Select a category from the sidebar to explore content.</p>
-    </div>
-  </main>
 
   <script>
     function toggleMenu(button) {
