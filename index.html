@@ -3,54 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skeuomorphic Website</title>
+  <title>Skeuomorphic Sidebar Website</title>
   <style>
     body {
       font-family: "Georgia", serif;
-      background: #d7d7d7 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+      background: #e4e4e4 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
       margin: 0;
-      padding: 0;
+      display: flex;
       color: #333;
     }
 
-    header {
-      background: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
-      border-bottom: 2px solid #bbb;
-      padding: 30px;
-      text-align: center;
-      box-shadow: inset 0 1px 0 #fff, 0 2px 5px rgba(0,0,0,0.2);
+    /* Sidebar */
+    aside {
+      width: 220px;
+      background: linear-gradient(to bottom, #f9f9f9, #dcdcdc);
+      border-right: 2px solid #bbb;
+      box-shadow: inset 0 1px 0 #fff, 2px 0 5px rgba(0,0,0,0.2);
+      padding: 30px 20px;
+      height: 100vh;
+      position: fixed;
     }
 
-    header h1 {
-      font-size: 2.5em;
-      text-shadow: 1px 1px 0px #fff;
-    }
-
-    nav {
-      margin-top: 15px;
+    aside h2 {
+      text-shadow: 1px 1px 0 #fff;
+      margin-bottom: 20px;
     }
 
     nav a {
-      display: inline-block;
-      background: linear-gradient(to bottom, #fefefe, #ccc);
-      border: 1px solid #999;
-      border-radius: 8px;
-      padding: 8px 15px;
-      margin: 5px;
-      text-decoration: none;
+      display: block;
       color: #333;
+      text-decoration: none;
+      margin: 12px 0;
       font-weight: bold;
-      box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.2);
+      padding-left: 5px;
     }
 
     nav a:hover {
-      background: linear-gradient(to bottom, #fff, #bbb);
+      text-decoration: underline;
     }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
+    /* Main content */
+    main {
+      margin-left: 240px;
+      padding: 30px;
+      flex: 1;
     }
 
     .card {
@@ -59,7 +55,7 @@
       border-radius: 10px;
       padding: 25px;
       margin: 20px 0;
-      box-shadow: inset 0 1px 0 #fff, 0 4px 6px rgba(0,0,0,0.3);
+      box-shadow: inset 0 1px 0 #fff, 0 4px 6px rgba(0,0,0,0.25);
     }
 
     .card h2 {
@@ -67,61 +63,73 @@
       text-shadow: 1px 1px 0 #fff;
     }
 
-    ul li {
-      margin: 10px 0;
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #aaa;
+      margin-top: 40px;
     }
 
-    footer {
-      background: linear-gradient(to bottom, #eee, #ccc);
-      border-top: 2px solid #aaa;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #444;
-      box-shadow: inset 0 1px 0 #fff, 0 -2px 4px rgba(0,0,0,0.2);
+    @media (max-width: 700px) {
+      aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        box-shadow: none;
+      }
+      main {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>My Retro Website</h1>
+  <aside>
+    <h2>My Website</h2>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </aside>
 
-  <section id="about">
-    <div class="card">
-      <h2>About Me</h2>
-      <p>Welcome to my skeuomorphic-style website!  
-      This design mimics the old-school glossy, shadow-heavy look of early web and iOS apps.</p>
-    </div>
-  </section>
+  <main>
+    <section id="about">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>Hello! 👋 This is my clean skeuomorphic-inspired website.  
+        It uses textures, shadows, and gradients but keeps a modern feel.</p>
+      </div>
+    </section>
 
-  <section id="projects">
-    <div class="card">
-      <h2>Projects</h2>
-      <ul>
-        <li>📂 Old-school Portfolio Site</li>
-        <li>📖 Digital Diary with leather texture</li>
-        <li>🎛 Retro Music Player UI</li>
-      </ul>
-    </div>
-  </section>
+    <section id="projects">
+      <div class="card">
+        <h2>Projects</h2>
+        <ul>
+          <li>🌐 Website design with skeuomorphic touches</li>
+          <li>📱 Old-school app mockup</li>
+          <li>💻 Personal portfolio page</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Email me at <strong>you@example.com</strong></p>
-    </div>
-  </section>
+    <section id="contact">
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Email: <strong>you@example.com</strong></p>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 My Retro Website | Made with Skeuomorphic ❤️</p>
-  </footer>
+    <footer>
+      <p>© 2025 My Website | Skeuomorphic but modern ✨</p>
+    </footer>
+  </main>
 
 </body>
 </html>
+
+
