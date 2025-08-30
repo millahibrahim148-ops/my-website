@@ -3,245 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>thaalib al-ʿIlm</title>
+  <title>Thaalib al-ʿIlm</title>
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       display: flex;
-      color: #333;
-      font-weight: normal;
     }
 
     /* Sidebar */
-    aside {
-      width: 260px; /* stretched */
-      background: #1b1b1b; /* darker gray */
-      color: #fff;
-      padding: 20px;
+    .sidebar {
+      width: 250px;
+      background-color: #222; /* dark gray */
+      color: white;
       height: 100vh;
-      overflow-y: auto;
       position: fixed;
-      right: 0; 
+      right: 0;
       top: 0;
-      box-shadow: -2px 0 6px rgba(0,0,0,0.4);
+      padding: 20px;
+      overflow-y: auto;
     }
 
-    aside img {
-      width: 160px;
-      height: auto;
-      border-radius: 6px;
-      margin: 30px auto 18px auto;
+    .sidebar img {
       display: block;
+      margin: 0 auto 15px auto;
+      width: 150px;
+      border-radius: 8px;
     }
 
-    aside h1 {
-      font-size: 1.3em;
+    .sidebar h2 {
+      font-size: 18px;
       text-align: center;
-      margin: 18px 0 28px 0;
+      margin-bottom: 20px;
       font-weight: normal;
     }
 
-    nav {
-      margin-top: 10px;
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    /* Menu categories */
-    .menu-category {
-      margin: 10px 0;
-    }
-
-    .menu-category button {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 10px 8px;
-      font-size: 1em;
+    .menu li {
+      margin-bottom: 10px;
       cursor: pointer;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      font-weight: normal;
-      transition: background 0.2s;
+      user-select: none;
     }
 
-    .menu-category button:hover {
-      background: #2a2a2a;
-    }
-
-    .arrow {
+    .menu li span {
       margin-right: 8px;
-      font-size: 0.9em;
-      display: inline-block;
-      transition: transform 0.25s ease;
-    }
-
-    .rotate {
-      transform: rotate(90deg); /* rotate arrow when open */
+      transition: transform 0.3s;
     }
 
     .submenu {
-      max-height: 0;
-      overflow: hidden;
-      padding-left: 22px;
-      transition: max-height 0.35s ease;
+      list-style: none;
+      padding-left: 20px;
+      display: none;
     }
 
-    .submenu.open {
-      max-height: 500px; /* enough height for items */
-    }
-
-    .submenu a {
-      display: block;
-      text-decoration: none;
-      color: #bbb;
-      padding: 6px 0;
-      font-size: 0.95em;
-      font-weight: normal;
-      transition: color 0.2s;
-    }
-
-    .submenu a:hover {
-      color: #fff;
-    }
-
-    /* Homepage link */
-    .menu-category a {
-      display: block;
-      padding: 10px 8px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: normal;
-      font-size: 1em;
-      transition: background 0.2s;
-    }
-
-    .menu-category a:hover {
-      background: #2a2a2a;
+    .submenu li {
+      margin: 5px 0;
+      font-size: 14px;
     }
 
     /* Main content */
-    main {
-      margin-right: 280px; /* push main content away from sidebar */
-      padding: 0;
-      flex: 1;
+    .main {
+      margin-right: 250px; /* space for sidebar */
+      width: 100%;
+      min-height: 100vh;
     }
 
-    /* Hero/Header Section */
-    .hero {
+    /* Header with background */
+    .header {
       position: relative;
-      height: 320px;
-      background: url("https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg") 
-                  no-repeat center center/cover;
+      height: 300px;
+      background-image: url("https://github.com/millahibrahim148-ops/my-website/blob/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg?raw=true");
+      background-size: cover;
+      background-position: center;
     }
 
-    .hero::after {
+    .header::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.55);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65); /* darker overlay */
     }
 
-    .hero-content {
+    .header-content {
       position: relative;
-      color: #fff;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
       z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
-    .hero-content h2 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-      font-weight: normal;
-    }
-
-    .hero-content p {
-      font-size: 1.15em;
-    }
-
-    /* Page content */
-    .page-content {
-      padding: 25px;
+    .header-content img {
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="https://github.com/millahibrahim148-ops/my-website/blob/main/unnamed.png?raw=true" alt="Banner">
+    <h2>thaalib al-ʿIlm</h2>
+    <ul class="menu">
+      <li><span>▶</span> Homepage</li>
+      <li>
+        <span>▶</span> Ask Question / Suggestion
+        <ul class="submenu">
+          <li>For Muslim</li>
+          <li>For Muslimah</li>
+        </ul>
+      </li>
+      <li>
+        <span>▶</span> Thaalib al-ʿIlm Guides
+        <ul class="submenu">
+          <li>How to (...) page</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
-  <main>
-    <!-- Hero/Header -->
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Welcome to thaalib al-ʿIlm</h2>
-        <p>A place to seek knowledge with clarity and purpose.</p>
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <div class="header-content">
+        <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/0821.gif" alt="Title GIF">
       </div>
-    </section>
-
-    <!-- Page content -->
-    <div class="page-content">
-      <p>Select a category from the sidebar to explore content.</p>
     </div>
-  </main>
-
-  <aside>
-    <!-- Banner Image -->
-    <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/unnamed.png" alt="Banner">
-    <h1>thaalib al-ʿIlm</h1>
-
-    <nav>
-      <!-- Homepage -->
-      <div class="menu-category">
-        <a href="#home">🏠 Homepage</a>
-      </div>
-
-      <!-- Ask Question / Give Suggestion -->
-      <div class="menu-category">
-        <button onclick="toggleMenu(this)">
-          <span class="arrow">▶</span> Ask Question / Give Suggestion
-        </button>
-        <div class="submenu">
-          <a href="#ask-question">How to Submit a Question</a>
-          <a href="#give-suggestion">Submit a Suggestion</a>
-        </div>
-      </div>
-
-      <!-- For Muslim / Muslimah -->
-      <div class="menu-category">
-        <button onclick="toggleMenu(this)">
-          <span class="arrow">▶</span> For Muslim / Muslimah
-        </button>
-        <div class="submenu">
-          <a href="#muslim">For Muslim</a>
-          <a href="#muslimah">For Muslimah</a>
-        </div>
-      </div>
-
-      <!-- Thaalib al-ʿIlm Guides -->
-      <div class="menu-category">
-        <button onclick="toggleMenu(this)">
-          <span class="arrow">▶</span> Thaalib al-ʿIlm Guides
-        </button>
-        <div class="submenu">
-          <a href="#guide1">How to Start Seeking Knowledge</a>
-          <a href="#guide2">Recommended Books</a>
-          <a href="#guide3">Daily Routine for a Student</a>
-        </div>
-      </div>
-    </nav>
-  </aside>
+  </div>
 
   <script>
-    function toggleMenu(button) {
-      const arrow = button.querySelector(".arrow");
-      const submenu = button.nextElementSibling;
-
-      submenu.classList.toggle("open");
-      arrow.classList.toggle("rotate");
-    }
+    document.querySelectorAll(".menu li").forEach(item => {
+      item.addEventListener("click", function () {
+        let submenu = this.querySelector(".submenu");
+        let arrow = this.querySelector("span");
+        if (submenu) {
+          submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+          arrow.textContent = submenu.style.display === "block" ? "▼" : "▶";
+        }
+      });
+    });
   </script>
-
 </body>
 </html>
