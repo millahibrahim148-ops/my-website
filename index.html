@@ -3,133 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skeuomorphic Sidebar Website</title>
+  <title>thaalib al-ʿIlm</title>
   <style>
     body {
-      font-family: "Georgia", serif;
-      background: #e4e4e4 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
       margin: 0;
+      font-family: "Georgia", serif;
+      background: #f2f2f2 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
       display: flex;
       color: #333;
     }
 
     /* Sidebar */
     aside {
-      width: 220px;
+      width: 260px;
       background: linear-gradient(to bottom, #f9f9f9, #dcdcdc);
       border-right: 2px solid #bbb;
-      box-shadow: inset 0 1px 0 #fff, 2px 0 5px rgba(0,0,0,0.2);
-      padding: 30px 20px;
+      box-shadow: inset 0 1px 0 #fff, 2px 0 6px rgba(0,0,0,0.15);
+      padding: 20px;
       height: 100vh;
+      overflow-y: auto;
       position: fixed;
     }
 
-    aside h2 {
+    aside img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    aside h1 {
+      font-size: 1.4em;
+      text-align: center;
+      margin: 10px 0 20px 0;
       text-shadow: 1px 1px 0 #fff;
-      margin-bottom: 20px;
     }
 
-    nav a {
-      display: block;
-      color: #333;
-      text-decoration: none;
-      margin: 12px 0;
+    nav {
+      margin-top: 15px;
+    }
+
+    /* Menu categories */
+    .menu-category {
+      margin: 10px 0;
+      border-bottom: 1px solid #bbb;
+    }
+
+    .menu-category button {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 10px;
+      font-size: 1em;
       font-weight: bold;
-      padding-left: 5px;
+      cursor: pointer;
+      color: #333;
+      display: flex;
+      align-items: center;
     }
 
-    nav a:hover {
+    .menu-category button:hover {
+      background: #eee;
+    }
+
+    .arrow {
+      margin-right: 8px;
+      transition: transform 0.3s;
+    }
+
+    .arrow.open {
+      transform: rotate(-90deg);
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 25px;
+      margin-bottom: 10px;
+    }
+
+    .submenu a {
+      display: block;
+      text-decoration: none;
+      color: #444;
+      padding: 5px 0;
+      font-size: 0.95em;
+    }
+
+    .submenu a:hover {
       text-decoration: underline;
     }
 
     /* Main content */
     main {
-      margin-left: 240px;
+      margin-left: 280px;
       padding: 30px;
       flex: 1;
     }
 
-    .card {
-      background: #fdfdfd;
-      border: 1px solid #aaa;
-      border-radius: 10px;
-      padding: 25px;
-      margin: 20px 0;
-      box-shadow: inset 0 1px 0 #fff, 0 4px 6px rgba(0,0,0,0.25);
-    }
-
-    .card h2 {
-      margin-top: 0;
+    main h2 {
       text-shadow: 1px 1px 0 #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #555;
-      border-top: 1px solid #aaa;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 700px) {
-      aside {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        box-shadow: none;
-      }
-      main {
-        margin-left: 0;
-      }
     }
   </style>
 </head>
 <body>
 
   <aside>
-    <h2>My Website</h2>
+    <!-- Banner Image -->
+    <img src="your-banner-image.jpg" alt="Banner">
+    <h1>thaalib al-ʿIlm</h1>
+
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <!-- Homepage -->
+      <div class="menu-category">
+        <a href="#home" style="display:block; padding:10px; font-weight:bold; text-decoration:none; color:#333;">🏠 Homepage</a>
+      </div>
+
+      <!-- Ask Question / Give Suggestion -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">▼</span> Ask Question / Give Suggestion
+        </button>
+        <div class="submenu">
+          <a href="#ask-question">How to Submit a Question</a>
+          <a href="#give-suggestion">Submit a Suggestion</a>
+        </div>
+      </div>
+
+      <!-- For Muslim / Muslimah -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">▼</span> For Muslim / Muslimah
+        </button>
+        <div class="submenu">
+          <a href="#muslim">For Muslim</a>
+          <a href="#muslimah">For Muslimah</a>
+        </div>
+      </div>
+
+      <!-- Thaalib al-ʿIlm Guides -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">▼</span> Thaalib al-ʿIlm Guides
+        </button>
+        <div class="submenu">
+          <a href="#guide1">How to Start Seeking Knowledge</a>
+          <a href="#guide2">Recommended Books</a>
+          <a href="#guide3">Daily Routine for a Student</a>
+        </div>
+      </div>
     </nav>
   </aside>
 
   <main>
-    <section id="about">
-      <div class="card">
-        <h2>About Me</h2>
-        <p>Hello! 👋 This is my clean skeuomorphic-inspired website.  
-        It uses textures, shadows, and gradients but keeps a modern feel.</p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="card">
-        <h2>Projects</h2>
-        <ul>
-          <li>🌐 Website design with skeuomorphic touches</li>
-          <li>📱 Old-school app mockup</li>
-          <li>💻 Personal portfolio page</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="card">
-        <h2>Contact</h2>
-        <p>Email: <strong>you@example.com</strong></p>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 My Website | Skeuomorphic but modern ✨</p>
-    </footer>
+    <h2>Welcome to thaalib al-ʿIlm</h2>
+    <p>Select a category from the sidebar to explore content.</p>
   </main>
+
+  <script>
+    function toggleMenu(button) {
+      const arrow = button.querySelector(".arrow");
+      const submenu = button.nextElementSibling;
+
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      arrow.classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
-
-
