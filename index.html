@@ -1,22 +1,189 @@
-<aside>
-  <!-- Banner Image -->
-  <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/image.png" alt="Banner">
-  <h1>thaalib al-ʿIlm</h1>
-</aside>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thaalib al-ʿIlm</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #f9f9f9;
+      display: flex;
+      color: #333;
+      font-weight: normal;
+    }
 
-<style>
-  aside img {
-    width: 150px;
-    height: auto;
-    border-radius: 6px;
-    margin: 20px auto 15px auto; /* top, right/left, bottom */
-    display: block;
-  }
+    /* Sidebar */
+    aside {
+      width: 220px;
+      background: #333;   /* dark gray */
+      color: #fff;
+      padding: 15px;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+    }
 
-  aside h1 {
-    font-size: 1.2em;
-    text-align: center;
-    margin: 20px 0 25px 0; /* added more top and bottom margin */
-    font-weight: normal;
-  }
-</style>
+    aside img {
+      width: 150px;
+      height: auto;
+      border-radius: 6px;
+      margin: 25px auto 18px auto; /* lowered & added space under */
+      display: block;
+    }
+
+    aside h1 {
+      font-size: 1.2em;
+      text-align: center;
+      margin: 15px 0 25px 0; /* space between banner & title */
+      font-weight: normal;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    /* Menu categories */
+    .menu-category {
+      margin: 8px 0;
+      border-bottom: 1px solid #555;
+    }
+
+    .menu-category button {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 8px;
+      font-size: 0.95em;
+      cursor: pointer;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+    }
+
+    .menu-category button:hover {
+      background: #444;
+    }
+
+    .arrow {
+      margin-right: 6px;
+      font-size: 0.9em;
+      display: inline-block;
+      width: 12px;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 20px;
+      margin-bottom: 6px;
+    }
+
+    .submenu a {
+      display: block;
+      text-decoration: none;
+      color: #ccc;
+      padding: 4px 0;
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+
+    .submenu a:hover {
+      color: #fff;
+    }
+
+    /* Homepage link */
+    .menu-category a {
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: normal;
+      font-size: 0.95em;
+    }
+
+    .menu-category a:hover {
+      background: #444;
+    }
+
+    /* Main content */
+    main {
+      margin-left: 240px;
+      padding: 25px;
+      flex: 1;
+    }
+
+    main h2 {
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <!-- Banner Image -->
+    <img src="https://raw.githubusercontent.com/millahibrahim148-ops/my-website/refs/heads/main/image.png" alt="Banner">
+    <h1>thaalib al-ʿIlm</h1>
+
+    <nav>
+      <!-- Homepage -->
+      <div class="menu-category">
+        <a href="#home">🏠 Homepage</a>
+      </div>
+
+      <!-- Ask Question / Give Suggestion -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">></span> Ask Question / Give Suggestion
+        </button>
+        <div class="submenu">
+          <a href="#ask-question">How to Submit a Question</a>
+          <a href="#give-suggestion">Submit a Suggestion</a>
+        </div>
+      </div>
+
+      <!-- For Muslim / Muslimah -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">></span> For Muslim / Muslimah
+        </button>
+        <div class="submenu">
+          <a href="#muslim">For Muslim</a>
+          <a href="#muslimah">For Muslimah</a>
+        </div>
+      </div>
+
+      <!-- Thaalib al-ʿIlm Guides -->
+      <div class="menu-category">
+        <button onclick="toggleMenu(this)">
+          <span class="arrow">></span> Thaalib al-ʿIlm Guides
+        </button>
+        <div class="submenu">
+          <a href="#guide1">How to Start Seeking Knowledge</a>
+          <a href="#guide2">Recommended Books</a>
+          <a href="#guide3">Daily Routine for a Student</a>
+        </div>
+      </div>
+    </nav>
+  </aside>
+
+  <main>
+    <h2>Welcome to thaalib al-ʿIlm</h2>
+    <p>Select a category from the sidebar to explore content.</p>
+  </main>
+
+  <script>
+    function toggleMenu(button) {
+      const arrow = button.querySelector(".arrow");
+      const submenu = button.nextElementSibling;
+
+      const isOpen = submenu.style.display === "block";
+      submenu.style.display = isOpen ? "none" : "block";
+      arrow.textContent = isOpen ? ">" : "v";
+    }
+  </script>
+
+</body>
+</html>
