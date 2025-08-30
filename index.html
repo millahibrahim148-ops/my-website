@@ -16,29 +16,30 @@
 
     /* Sidebar */
     aside {
-      width: 220px;
-      background: #222;   /* dark gray */
+      width: 260px; /* stretched */
+      background: #1b1b1b; /* darker gray */
       color: #fff;
-      padding: 15px;
+      padding: 20px;
       height: 100vh;
       overflow-y: auto;
       position: fixed;
-      right: 0;  /* move sidebar to the right */
+      right: 0; 
       top: 0;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.4);
     }
 
     aside img {
-      width: 150px;
+      width: 160px;
       height: auto;
       border-radius: 6px;
-      margin: 25px auto 18px auto;
+      margin: 30px auto 18px auto;
       display: block;
     }
 
     aside h1 {
-      font-size: 1.2em;
+      font-size: 1.3em;
       text-align: center;
-      margin: 15px 0 25px 0;
+      margin: 18px 0 28px 0;
       font-weight: normal;
     }
 
@@ -48,8 +49,7 @@
 
     /* Menu categories */
     .menu-category {
-      margin: 8px 0;
-      border-bottom: 1px solid #444;
+      margin: 10px 0;
     }
 
     .menu-category button {
@@ -57,39 +57,50 @@
       background: none;
       border: none;
       text-align: left;
-      padding: 8px;
-      font-size: 0.95em;
+      padding: 10px 8px;
+      font-size: 1em;
       cursor: pointer;
       color: #fff;
       display: flex;
       align-items: center;
       font-weight: normal;
+      transition: background 0.2s;
     }
 
     .menu-category button:hover {
-      background: #333;
+      background: #2a2a2a;
     }
 
     .arrow {
-      margin-right: 6px;
+      margin-right: 8px;
       font-size: 0.9em;
       display: inline-block;
-      width: 12px;
+      transition: transform 0.25s ease;
+    }
+
+    .rotate {
+      transform: rotate(90deg); /* rotate arrow when open */
     }
 
     .submenu {
-      display: none;
-      padding-left: 20px;
-      margin-bottom: 6px;
+      max-height: 0;
+      overflow: hidden;
+      padding-left: 22px;
+      transition: max-height 0.35s ease;
+    }
+
+    .submenu.open {
+      max-height: 500px; /* enough height for items */
     }
 
     .submenu a {
       display: block;
       text-decoration: none;
       color: #bbb;
-      padding: 4px 0;
-      font-size: 0.9em;
+      padding: 6px 0;
+      font-size: 0.95em;
       font-weight: normal;
+      transition: color 0.2s;
     }
 
     .submenu a:hover {
@@ -99,20 +110,21 @@
     /* Homepage link */
     .menu-category a {
       display: block;
-      padding: 8px;
+      padding: 10px 8px;
       text-decoration: none;
       color: #fff;
       font-weight: normal;
-      font-size: 0.95em;
+      font-size: 1em;
+      transition: background 0.2s;
     }
 
     .menu-category a:hover {
-      background: #333;
+      background: #2a2a2a;
     }
 
     /* Main content */
     main {
-      margin-right: 240px; /* push main content away from right sidebar */
+      margin-right: 280px; /* push main content away from sidebar */
       padding: 0;
       flex: 1;
     }
@@ -129,7 +141,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.55); /* dark overlay for readability */
+      background: rgba(0,0,0,0.55);
     }
 
     .hero-content {
@@ -188,7 +200,7 @@
       <!-- Ask Question / Give Suggestion -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">></span> Ask Question / Give Suggestion
+          <span class="arrow">▶</span> Ask Question / Give Suggestion
         </button>
         <div class="submenu">
           <a href="#ask-question">How to Submit a Question</a>
@@ -199,7 +211,7 @@
       <!-- For Muslim / Muslimah -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">></span> For Muslim / Muslimah
+          <span class="arrow">▶</span> For Muslim / Muslimah
         </button>
         <div class="submenu">
           <a href="#muslim">For Muslim</a>
@@ -210,7 +222,7 @@
       <!-- Thaalib al-ʿIlm Guides -->
       <div class="menu-category">
         <button onclick="toggleMenu(this)">
-          <span class="arrow">></span> Thaalib al-ʿIlm Guides
+          <span class="arrow">▶</span> Thaalib al-ʿIlm Guides
         </button>
         <div class="submenu">
           <a href="#guide1">How to Start Seeking Knowledge</a>
@@ -226,9 +238,8 @@
       const arrow = button.querySelector(".arrow");
       const submenu = button.nextElementSibling;
 
-      const isOpen = submenu.style.display === "block";
-      submenu.style.display = isOpen ? "none" : "block";
-      arrow.textContent = isOpen ? ">" : "v";
+      submenu.classList.toggle("open");
+      arrow.classList.toggle("rotate");
     }
   </script>
 
