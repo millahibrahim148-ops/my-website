@@ -8,19 +8,17 @@
     body {
       margin: 0;
       font-family: "Georgia", serif;
-      background: #f2f2f2 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+      background: #f9f9f9;
       display: flex;
       color: #333;
+      font-weight: normal;
     }
 
     /* Sidebar */
     aside {
       width: 260px;
-      background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
-      border-right: 2px solid #aaa;
-      box-shadow: inset -2px 0 8px rgba(255,255,255,0.6),
-                  inset 2px 0 6px rgba(0,0,0,0.2),
-                  2px 0 6px rgba(0,0,0,0.25);
+      background: #666; /* fully grey */
+      color: #fff;
       padding: 20px;
       height: 100vh;
       overflow-y: auto;
@@ -29,17 +27,16 @@
 
     aside img {
       max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      border-radius: 6px;
       margin-bottom: 10px;
+      display: block;
     }
 
     aside h1 {
       font-size: 1.4em;
       text-align: center;
       margin: 10px 0 20px 0;
-      text-shadow: 1px 1px 0 #fff;
-      color: #222;
+      font-weight: normal;
     }
 
     nav {
@@ -49,7 +46,7 @@
     /* Menu categories */
     .menu-category {
       margin: 10px 0;
-      border-bottom: 1px solid #bbb;
+      border-bottom: 1px solid #888;
     }
 
     .menu-category button {
@@ -59,15 +56,15 @@
       text-align: left;
       padding: 10px;
       font-size: 1em;
-      font-weight: bold;
       cursor: pointer;
-      color: #222;
+      color: #fff;
       display: flex;
       align-items: center;
+      font-weight: normal;
     }
 
     .menu-category button:hover {
-      background: #e0e0e0;
+      background: #555;
     }
 
     .arrow {
@@ -88,13 +85,27 @@
     .submenu a {
       display: block;
       text-decoration: none;
-      color: #444;
+      color: #ddd;
       padding: 5px 0;
       font-size: 0.95em;
+      font-weight: normal;
     }
 
     .submenu a:hover {
-      text-decoration: underline;
+      color: #fff;
+    }
+
+    /* Homepage link */
+    .menu-category a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: normal;
+    }
+
+    .menu-category a:hover {
+      background: #555;
     }
 
     /* Main content */
@@ -105,7 +116,7 @@
     }
 
     main h2 {
-      text-shadow: 1px 1px 0 #fff;
+      font-weight: normal;
     }
   </style>
 </head>
@@ -119,7 +130,7 @@
     <nav>
       <!-- Homepage -->
       <div class="menu-category">
-        <a href="#home" style="display:block; padding:10px; font-weight:bold; text-decoration:none; color:#222;">🏠 Homepage</a>
+        <a href="#home">🏠 Homepage</a>
       </div>
 
       <!-- Ask Question / Give Suggestion -->
