@@ -9,7 +9,6 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      display: flex;
     }
 
     /* Sidebar */
@@ -24,6 +23,7 @@
       padding: 20px;
       overflow-y: auto;
       transition: transform 0.3s ease;
+      z-index: 1000; /* 👈 stays on top */
     }
 
     .sidebar.hidden {
@@ -74,9 +74,6 @@
 
     /* Main content */
     .main {
-      margin-right: 250px; /* space for sidebar */
-      width: 100%;
-      min-height: 100vh;
       transition: margin-right 0.3s ease;
     }
 
@@ -91,6 +88,7 @@
       background-image: url("https://github.com/millahibrahim148-ops/my-website/blob/main/BLSfKR-ziHzpUbe7umegw6Y33pWy4wYvaKAX9C1ytx2urGfb3MSLulbcL2yAlbNP5JavRj0mp5SQ0x8ZbUMRhxGewpgbOw4XWlD43v3J5kKi1ln_Mtj-U2n6TYWBR8V1ReZRrpXSv4Iye_hHEk-QLGwFGQ3Xq68aJMyuTd_WlTqK0bH7LTwibiwVO0HcDsx0Qz1xgZMYcEdhOlLGqfkE0.jpg?raw=true");
       background-size: cover;
       background-position: center;
+      z-index: 0;
     }
 
     .header::after {
@@ -124,7 +122,7 @@
       border: none;
       padding: 8px 12px;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 1100; /* 👈 on top of sidebar */
       border-radius: 6px;
     }
 
@@ -136,7 +134,7 @@
       position: fixed;
       top: 15px;
       left: 60px;
-      z-index: 999;
+      z-index: 1100;
     }
 
     .topbar img {
